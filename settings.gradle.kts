@@ -9,6 +9,10 @@ project(":Lavalink-Server").projectDir = file("$rootDir/LavalinkServer")
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+        maven("https://jitpack.io")
+    }
     versionCatalogs {
         create("libs") {
             spring()
@@ -34,11 +38,13 @@ fun VersionCatalogBuilder.spring() {
 }
 
 fun VersionCatalogBuilder.voice() {
-    version("lavaplayer", "2.2.2")
+    version("lavaplayer", "409c47f13d29dc0e8eb98ebd9000221c32562164")
     version("koe", "2.0.3-rc2")
+    version("lavaplayer-rotator",   "2.2.2") 
+    
 
-    library("lavaplayer",            "dev.arbjerg", "lavaplayer").versionRef("lavaplayer")
-    library("lavaplayer-ip-rotator", "dev.arbjerg", "lavaplayer-ext-youtube-rotator").versionRef("lavaplayer")
+    library("lavaplayer",            "com.github.HadeMusic.lavaplayer", "lavaplayer").versionRef("lavaplayer")
+    library("lavaplayer-ip-rotator", "dev.arbjerg", "lavaplayer-ext-youtube-rotator").versionRef("lavaplayer-rotator")
     library("lavadsp",               "dev.arbjerg", "lavadsp").version("0.7.8")
 
     library("koe",          "moe.kyokobot.koe", "core").versionRef("koe")
