@@ -42,4 +42,4 @@ jobs:
           file: LavalinkServer/docker/Dockerfile
           platforms: linux/amd64,linux/arm64/v8
           push: true
-          tags: ghcr.io/${{ github.repository }}:latest
+          tags: ghcr.io/${{ github.repository }}:${{ github.sha.substring(0,7) }}
